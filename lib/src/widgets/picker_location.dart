@@ -49,12 +49,10 @@ Future<GeoPoint?> showSimplePickerLocation({
   );
 
   GeoPoint? point = await showDialog(
+    barrierDismissible: isDismissible,
     context: context,
     builder: (ctx) {
-      return WillPopScope(
-        onWillPop: () async {
-          return isDismissible;
-        },
+      return PopScope(
         child: SizedBox(
           height: MediaQuery.of(context).size.height / 2.4,
           width: MediaQuery.of(context).size.height / 2,
